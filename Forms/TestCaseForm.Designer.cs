@@ -31,8 +31,8 @@ namespace TestTracker.Forms
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonPass = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonPassed = new System.Windows.Forms.Button();
+            this.buttonBlocked = new System.Windows.Forms.Button();
             this.checkedListOfSteps = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -72,8 +72,8 @@ namespace TestTracker.Forms
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonPass, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonCancel, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPassed, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonBlocked, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(79, 501);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -83,29 +83,31 @@ namespace TestTracker.Forms
             this.tableLayoutPanel2.Size = new System.Drawing.Size(266, 68);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // buttonPass
+            // buttonPassed
             // 
-            this.buttonPass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonPass.BackColor = System.Drawing.Color.LightGreen;
-            this.buttonPass.ForeColor = System.Drawing.Color.DarkGreen;
-            this.buttonPass.Location = new System.Drawing.Point(149, 19);
-            this.buttonPass.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.buttonPass.Name = "buttonPass";
-            this.buttonPass.Size = new System.Drawing.Size(101, 29);
-            this.buttonPass.TabIndex = 1;
-            this.buttonPass.Text = "Pass";
-            this.buttonPass.UseVisualStyleBackColor = false;
+            this.buttonPassed.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonPassed.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonPassed.ForeColor = System.Drawing.Color.DarkGreen;
+            this.buttonPassed.Location = new System.Drawing.Point(149, 19);
+            this.buttonPassed.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.buttonPassed.Name = "buttonPassed";
+            this.buttonPassed.Size = new System.Drawing.Size(101, 29);
+            this.buttonPassed.TabIndex = 1;
+            this.buttonPassed.Text = "Passed";
+            this.buttonPassed.UseVisualStyleBackColor = false;
             // 
-            // buttonCancel
+            // buttonBlocked
             // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonCancel.Location = new System.Drawing.Point(16, 19);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(101, 29);
-            this.buttonCancel.TabIndex = 0;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonBlocked.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonBlocked.BackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonBlocked.ForeColor = System.Drawing.Color.DarkRed;
+            this.buttonBlocked.Location = new System.Drawing.Point(16, 19);
+            this.buttonBlocked.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.buttonBlocked.Name = "buttonBlocked";
+            this.buttonBlocked.Size = new System.Drawing.Size(101, 29);
+            this.buttonBlocked.TabIndex = 0;
+            this.buttonBlocked.Text = "Blocked";
+            this.buttonBlocked.UseVisualStyleBackColor = false;
             // 
             // checkedListOfSteps
             // 
@@ -191,8 +193,8 @@ namespace TestTracker.Forms
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelExpectedResult;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonPass;
+        private System.Windows.Forms.Button buttonBlocked;
+        private System.Windows.Forms.Button buttonPassed;
         private System.Windows.Forms.CheckedListBox checkedListOfSteps;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxForExpectedResult;
