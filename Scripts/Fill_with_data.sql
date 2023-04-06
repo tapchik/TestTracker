@@ -166,3 +166,11 @@ insert into testcase_has_steps (testcase_short_id, step, action)
 	values (107, 5, "Ввести данные тестовой карты Мир (см. Conf)");
 insert into testcase_has_steps (testcase_short_id, step, action)
 	values (107, 6, "Найти в таблице orders оформленный заказ по id из чека"); 
+	
+
+-- inserting progress
+
+insert into progress (user_login, run_id, testcase_short_id, timestamp_started, timestamp_finished, passed) values 
+	("tatiana", "bngh34", 102, "2023-03-12", "2023-03-12", "Passed");
+insert into progress (user_login, run_id, testcase_short_id, timestamp_started, timestamp_finished, passed) values 
+	("tatiana", "bngh34", 103, "2023-03-12", "2023-03-12", "Blocked");

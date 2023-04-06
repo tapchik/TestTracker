@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,9 @@ namespace TestTracker
         private Connector Connector;
         int ShortIdOfSelectedTestCase;
 
+        string user_login;
+        string run_id;
+
         public MainForm()
         {
             InitializeComponent();
@@ -28,19 +32,37 @@ namespace TestTracker
                 var result = loginForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    this.textBoxLogin.Text = loginForm.login;
-                    this.textBoxRunId.Text = loginForm.runId;
+                    this.user_login = loginForm.login;
+                    this.run_id = loginForm.runId;
+                    RefreshBasicInfo();
                 }
             }
 
             RefreshListOfTestSuites();
-            TestRun();
         }
 
-        public void TestRun()
+        private void RefreshBasicInfo()
         {
-            List<TestCase> testCases = Connector.GetAllTestCases();
-            int x = 5;
+            this.textBoxLogin.Text = this.user_login;
+            this.textBoxRunId.Text = this.run_id;
+            this.treeViewOfTestSuites.BeginUpdate();
+            foreach (TreeNode node_suite in treeViewOfTestSuites.Nodes)
+            {
+                foreach (TreeNode node_case in node_suite.Nodes)
+                {
+                    string passed = Connector.GetResultIfExists(this.run_id, Convert.ToInt32(node_case.Tag));
+                    switch (passed)
+                    {
+                        case "Passed":
+                            node_case.BackColor = Color.LightGreen;
+                            break;
+                        case "Blocked":
+                            node_case.BackColor = Color.LightPink;
+                            break;
+                    }
+                }
+            }
+            this.treeViewOfTestSuites.EndUpdate();
         }
 
         private void RefreshListOfTestSuites()
@@ -51,15 +73,24 @@ namespace TestTracker
             this.treeViewOfTestSuites.Nodes.Clear();
             foreach (TestSuite suite in suites)
             {
-                TreeNode node = treeViewOfTestSuites.Nodes.Add(suite.Representation);
+                TreeNode node_suite = treeViewOfTestSuites.Nodes.Add(suite.Representation);
                 List<TestCase> testcases = Connector.GetTestCasesInTestSuite(suite.ShortId);
                 foreach (TestCase testcase in testcases)
                 {
-                    node.Nodes.Add(testcase.FullId, testcase.Representation);
+                    var node_case = node_suite.Nodes.Add(testcase.FullId.ToString(), testcase.Representation);
+                    node_case.Tag = testcase.ShortId;
+                    string passed = Connector.GetResultIfExists(this.run_id, testcase.ShortId);
+                    switch (passed)
+                    {
+                        case "Passed":
+                            node_case.BackColor = Color.LightGreen;
+                            break;
+                        case "Blocked":
+                            node_case.BackColor = Color.LightPink;
+                            break;
+                    }
                 }
-
             }
-            //this.treeViewOfTestSuites.
             this.treeViewOfTestSuites.EndUpdate();
         }
 
@@ -86,11 +117,25 @@ namespace TestTracker
 
         private void buttonRun_Click(object sender, EventArgs e)
         {
-            int testcase_short_id = ShortIdOfSelectedTestCase;
+            int testcase_short_id = this.ShortIdOfSelectedTestCase;
             TestCase tcase = Connector.GetTestCase(testcase_short_id);
             TestSteps tsteps = Connector.GetStepsForTestCase(testcase_short_id);
-            TestCaseForm form = new TestCaseForm(tcase, tsteps);
-            form.ShowDialog();
+
+            using (var form = new TestCaseForm(tcase, tsteps))
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string passed = form.result;
+                    Connector.InsertRunResult(this.user_login, this.run_id, tcase.ShortId, "2023-13-13", "2023-13-13", passed);
+                }
+                RefreshBasicInfo();
+            }
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

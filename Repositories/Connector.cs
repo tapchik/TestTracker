@@ -115,5 +115,37 @@ namespace TestTracker
             }
             return steps;
         }
+
+        public bool ExistsSavedResult(string run_id, int testcase_short_id)
+        {
+            string statement = $"select * from progress where run_id=\"{run_id}\" and testcase_short_id={testcase_short_id}";
+            var cmd = new SQLiteCommand(statement, _connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            bool row_exists = reader.HasRows;
+            return row_exists;
+        }
+
+        public void InsertRunResult(string user_login, string run_id, int testcase_short_id, string timestamp_started, string timestamp_finished, string passed)
+        {
+            if (!ExistsSavedResult(run_id, testcase_short_id)) {
+                string statement = $"insert into progress (user_login, run_id, testcase_short_id, timestamp_started, timestamp_finished, passed) values ('{user_login}', '{run_id}', {testcase_short_id}, '{timestamp_started}', '{timestamp_finished}', '{passed}')";
+                var cmd = new SQLiteCommand(statement, _connection);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public string GetResultIfExists(string run_id, int testcase_short_id)
+        {
+            string statement = $"select passed from progress where run_id='{run_id}' and testcase_short_id={testcase_short_id}";
+            var cmd = new SQLiteCommand(statement, _connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Read();
+                return reader.GetString(0);
+            }
+            return null;
+        }
+
     }
 }

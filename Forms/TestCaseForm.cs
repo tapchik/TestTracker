@@ -13,9 +13,12 @@ namespace TestTracker.Forms
 {
     public partial class TestCaseForm : Form
     {
+        public string result;
+
         public TestCaseForm(TestCase testcase, TestSteps teststeps)
         {
             InitializeComponent();
+            result = "None";
             this.labelTitle.Text = testcase.Title;
             this.labelExpectedResult.Text = testcase.ExpectedResult;
 
@@ -24,6 +27,20 @@ namespace TestTracker.Forms
             {
                 this.checkedListOfSteps.Items.Add(step.Value);
             }
+        }
+
+        private void buttonPassed_Click(object sender, EventArgs e)
+        {
+            this.result = "Passed";
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void buttonBlocked_Click(object sender, EventArgs e)
+        {
+            this.result = "Blocked";
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

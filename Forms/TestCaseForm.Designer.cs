@@ -95,6 +95,7 @@ namespace TestTracker.Forms
             this.buttonPassed.TabIndex = 1;
             this.buttonPassed.Text = "Passed";
             this.buttonPassed.UseVisualStyleBackColor = false;
+            this.buttonPassed.Click += new System.EventHandler(this.buttonPassed_Click);
             // 
             // buttonBlocked
             // 
@@ -108,6 +109,7 @@ namespace TestTracker.Forms
             this.buttonBlocked.TabIndex = 0;
             this.buttonBlocked.Text = "Blocked";
             this.buttonBlocked.UseVisualStyleBackColor = false;
+            this.buttonBlocked.Click += new System.EventHandler(this.buttonBlocked_Click);
             // 
             // checkedListOfSteps
             // 

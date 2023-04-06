@@ -28,19 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Авторизация под пользователем");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Авторизация под админом");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Авторизация", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Один");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Второй");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Третий");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Каталог", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5,
-            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Авторизация под пользователем");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Авторизация под админом");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Авторизация", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Один");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Второй");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Третий");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Каталог", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBoxAllTestSuites = new System.Windows.Forms.GroupBox();
             this.treeViewOfTestSuites = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,17 +60,13 @@
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.groupBoxAllTestSuites.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -90,8 +90,58 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(882, 438);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(837, 433);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button3, 2, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(26, 376);
+            this.tableLayoutPanel3.MinimumSize = new System.Drawing.Size(200, 54);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(281, 54);
+            this.tableLayoutPanel3.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(9, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Move...";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Location = new System.Drawing.Point(102, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 29);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Bulk edit";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.Location = new System.Drawing.Point(189, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(89, 48);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Export run results";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.buttonRun_Click);
             // 
             // groupBoxAllTestSuites
             // 
@@ -102,7 +152,7 @@
             this.groupBoxAllTestSuites.Name = "groupBoxAllTestSuites";
             this.groupBoxAllTestSuites.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.tableLayoutPanel1.SetRowSpan(this.groupBoxAllTestSuites, 4);
-            this.groupBoxAllTestSuites.Size = new System.Drawing.Size(336, 364);
+            this.groupBoxAllTestSuites.Size = new System.Drawing.Size(318, 359);
             this.groupBoxAllTestSuites.TabIndex = 1;
             this.groupBoxAllTestSuites.TabStop = false;
             this.groupBoxAllTestSuites.Text = "Test cases";
@@ -115,27 +165,27 @@
             this.treeViewOfTestSuites.Location = new System.Drawing.Point(8, 23);
             this.treeViewOfTestSuites.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewOfTestSuites.Name = "treeViewOfTestSuites";
-            treeNode1.Name = "Node2";
-            treeNode1.Text = "Авторизация под пользователем";
-            treeNode2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            treeNode2.Name = "Node3";
-            treeNode2.Text = "Авторизация под админом";
-            treeNode3.Name = "Node0";
-            treeNode3.Text = "Авторизация";
-            treeNode4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "Один";
-            treeNode5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            treeNode5.Name = "Node1";
-            treeNode5.Text = "Второй";
-            treeNode6.Name = "Node2";
-            treeNode6.Text = "Третий";
-            treeNode7.Name = "Node1";
-            treeNode7.Text = "Каталог";
+            treeNode8.Name = "Node2";
+            treeNode8.Text = "Авторизация под пользователем";
+            treeNode9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            treeNode9.Name = "Node3";
+            treeNode9.Text = "Авторизация под админом";
+            treeNode10.Name = "Node0";
+            treeNode10.Text = "Авторизация";
+            treeNode11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            treeNode11.Name = "Node0";
+            treeNode11.Text = "Один";
+            treeNode12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            treeNode12.Name = "Node1";
+            treeNode12.Text = "Второй";
+            treeNode13.Name = "Node2";
+            treeNode13.Text = "Третий";
+            treeNode14.Name = "Node1";
+            treeNode14.Text = "Каталог";
             this.treeViewOfTestSuites.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode7});
-            this.treeViewOfTestSuites.Size = new System.Drawing.Size(320, 334);
+            treeNode10,
+            treeNode14});
+            this.treeViewOfTestSuites.Size = new System.Drawing.Size(302, 329);
             this.treeViewOfTestSuites.TabIndex = 0;
             this.treeViewOfTestSuites.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewOfTestSuites_AfterSelect);
             // 
@@ -143,9 +193,9 @@
             // 
             this.groupBox1.Controls.Add(this.textBoxTitleOfTC);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(355, 3);
+            this.groupBox1.Location = new System.Drawing.Point(337, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(524, 54);
+            this.groupBox1.Size = new System.Drawing.Size(497, 54);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Title";
@@ -156,16 +206,16 @@
             this.textBoxTitleOfTC.Location = new System.Drawing.Point(3, 19);
             this.textBoxTitleOfTC.Name = "textBoxTitleOfTC";
             this.textBoxTitleOfTC.ReadOnly = true;
-            this.textBoxTitleOfTC.Size = new System.Drawing.Size(518, 23);
+            this.textBoxTitleOfTC.Size = new System.Drawing.Size(491, 23);
             this.textBoxTitleOfTC.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBoxIdeaOfTC);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(355, 63);
+            this.groupBox2.Location = new System.Drawing.Point(337, 63);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(524, 114);
+            this.groupBox2.Size = new System.Drawing.Size(497, 114);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Idea";
@@ -177,16 +227,16 @@
             this.textBoxIdeaOfTC.Multiline = true;
             this.textBoxIdeaOfTC.Name = "textBoxIdeaOfTC";
             this.textBoxIdeaOfTC.ReadOnly = true;
-            this.textBoxIdeaOfTC.Size = new System.Drawing.Size(518, 92);
+            this.textBoxIdeaOfTC.Size = new System.Drawing.Size(491, 92);
             this.textBoxIdeaOfTC.TabIndex = 0;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBoxExpectedResultOfTC);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(355, 183);
+            this.groupBox3.Location = new System.Drawing.Point(337, 183);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(524, 114);
+            this.groupBox3.Size = new System.Drawing.Size(497, 114);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Expected result";
@@ -198,31 +248,29 @@
             this.textBoxExpectedResultOfTC.Multiline = true;
             this.textBoxExpectedResultOfTC.Name = "textBoxExpectedResultOfTC";
             this.textBoxExpectedResultOfTC.ReadOnly = true;
-            this.textBoxExpectedResultOfTC.Size = new System.Drawing.Size(518, 92);
+            this.textBoxExpectedResultOfTC.Size = new System.Drawing.Size(491, 92);
             this.textBoxExpectedResultOfTC.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.Controls.Add(this.textBoxRunId, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonLogOut, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonRun, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxLogin, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 4, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(402, 381);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(414, 376);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(429, 54);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(343, 54);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // textBoxRunId
@@ -236,18 +284,19 @@
             // buttonLogOut
             // 
             this.buttonLogOut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLogOut.Location = new System.Drawing.Point(141, 12);
+            this.buttonLogOut.Location = new System.Drawing.Point(158, 12);
             this.buttonLogOut.Name = "buttonLogOut";
             this.tableLayoutPanel2.SetRowSpan(this.buttonLogOut, 2);
             this.buttonLogOut.Size = new System.Drawing.Size(75, 29);
             this.buttonLogOut.TabIndex = 0;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = true;
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // buttonRun
             // 
             this.buttonRun.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonRun.Location = new System.Drawing.Point(227, 12);
+            this.buttonRun.Location = new System.Drawing.Point(256, 12);
             this.buttonRun.Name = "buttonRun";
             this.tableLayoutPanel2.SetRowSpan(this.buttonRun, 2);
             this.buttonRun.Size = new System.Drawing.Size(75, 29);
@@ -284,65 +333,18 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "run id";
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(68, 381);
-            this.tableLayoutPanel3.MinimumSize = new System.Drawing.Size(200, 54);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(215, 54);
-            this.tableLayoutPanel3.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(16, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Move...";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(123, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 29);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Bulk edit";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(322, 3);
-            this.button3.Name = "button3";
-            this.tableLayoutPanel2.SetRowSpan(this.button3, 2);
-            this.button3.Size = new System.Drawing.Size(93, 48);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Export run results";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.buttonRun_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 438);
+            this.ClientSize = new System.Drawing.Size(837, 433);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBoxAllTestSuites.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -352,7 +354,6 @@
             this.groupBox3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
