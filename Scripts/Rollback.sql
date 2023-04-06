@@ -19,6 +19,9 @@ create table progress (
 	user_login text,
 	run_id integer,
 	testcase_short_id integer,
+	timestamp_started text,
+	timestemp_finished text,
+	passed integer,
 	foreign key (testcase_short_id) references testcases(short_id));
 
 -- tables

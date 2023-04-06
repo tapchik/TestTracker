@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBoxLogin = new System.Windows.Forms.TextBox();
-            this.textBoxRunId = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxRunId = new System.Windows.Forms.TextBox();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,21 +58,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 201);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBoxLogin
+            // label1
             // 
-            this.textBoxLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxLogin.Location = new System.Drawing.Point(3, 18);
-            this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(194, 22);
-            this.textBoxLogin.TabIndex = 0;
-            // 
-            // textBoxRunId
-            // 
-            this.textBoxRunId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxRunId.Location = new System.Drawing.Point(3, 18);
-            this.textBoxRunId.Name = "textBoxRunId";
-            this.textBoxRunId.Size = new System.Drawing.Size(194, 22);
-            this.textBoxRunId.TabIndex = 1;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(81, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Welcome to TestTracker!";
             // 
             // groupBox1
             // 
@@ -85,6 +79,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
             // 
+            // textBoxLogin
+            // 
+            this.textBoxLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxLogin.Location = new System.Drawing.Point(3, 18);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(194, 22);
+            this.textBoxLogin.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -95,6 +97,14 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Run id";
+            // 
+            // textBoxRunId
+            // 
+            this.textBoxRunId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxRunId.Location = new System.Drawing.Point(3, 18);
+            this.textBoxRunId.Name = "textBoxRunId";
+            this.textBoxRunId.Size = new System.Drawing.Size(194, 22);
+            this.textBoxRunId.TabIndex = 1;
             // 
             // buttonLogin
             // 
@@ -107,16 +117,6 @@
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Welcome to TestTracker!";
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -127,7 +127,6 @@
             this.MinimumSize = new System.Drawing.Size(363, 267);
             this.Name = "LoginForm";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login";
             this.tableLayoutPanel1.ResumeLayout(false);
