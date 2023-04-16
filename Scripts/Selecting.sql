@@ -18,6 +18,10 @@ select * from view_testcases
 
 select * from view_testsuites --where short_id=
 
-select  * from progress; 
+select * from progress;
 
+select user_login, count(*) from progress where passed='Passed' group by user_login; 
+
+
+select * from testcase_has_steps where testcase_short_id=101; ;
 

@@ -1,6 +1,6 @@
 ﻿namespace TestTracker.Forms
 {
-    partial class ErrorForm
+    partial class ErrorLoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnOk
             // 
-            this.button1.Location = new System.Drawing.Point(80, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ok";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOk.Location = new System.Drawing.Point(60, 75);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(56, 19);
+            this.btnOk.TabIndex = 1;
+            this.btnOk.Text = "Ok";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Location = new System.Drawing.Point(9, 10);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(210, 69);
+            this.textBox1.Size = new System.Drawing.Size(158, 57);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Error, TestCase has to belong to at least one TestSuite! ";
+            this.textBox1.Text = "Stop! Login and run id fields must be filled. ";
             // 
-            // ErrorForm
+            // ErrorLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 127);
+            this.ClientSize = new System.Drawing.Size(176, 103);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Name = "ErrorForm";
+            this.Controls.Add(this.btnOk);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "ErrorLoginForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Error! ";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -68,7 +73,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

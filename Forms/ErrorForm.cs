@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace TestTracker.Forms
 {
-    public partial class ErrorForm : Form
+    public partial class ErrorLoginForm : Form
     {
-        public ErrorForm()
+        public ErrorLoginForm()
         {
             InitializeComponent();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

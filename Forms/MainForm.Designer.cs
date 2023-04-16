@@ -42,9 +42,8 @@
             treeNode13});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnBulkEdit = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
             this.groupBoxAllTestSuites = new System.Windows.Forms.GroupBox();
             this.treeViewOfTestSuites = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -96,52 +95,41 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(26, 376);
+            this.tableLayoutPanel3.Controls.Add(this.btnBulkEdit, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnReports, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(64, 376);
             this.tableLayoutPanel3.MinimumSize = new System.Drawing.Size(200, 54);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(281, 54);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(205, 54);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
-            // button1
+            // btnBulkEdit
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(9, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Move...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBulkEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBulkEdit.Location = new System.Drawing.Point(13, 12);
+            this.btnBulkEdit.Name = "btnBulkEdit";
+            this.btnBulkEdit.Size = new System.Drawing.Size(75, 29);
+            this.btnBulkEdit.TabIndex = 1;
+            this.btnBulkEdit.Text = "Bulk edit";
+            this.btnBulkEdit.UseVisualStyleBackColor = true;
+            this.btnBulkEdit.Click += new System.EventHandler(this.btnBulkEdit_Click);
             // 
-            // button2
+            // btnReports
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(102, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 29);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Bulk edit";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(189, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 48);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Export run results";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.buttonRun_Click);
+            this.btnReports.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReports.Location = new System.Drawing.Point(111, 12);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(85, 29);
+            this.btnReports.TabIndex = 1;
+            this.btnReports.Text = "Reports...";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.buttonReports_Click);
             // 
             // groupBoxAllTestSuites
             // 
@@ -342,7 +330,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Test Tracker";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBoxAllTestSuites.ResumeLayout(false);
@@ -376,9 +364,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnBulkEdit;
+        private System.Windows.Forms.Button btnReports;
     }
 }
 

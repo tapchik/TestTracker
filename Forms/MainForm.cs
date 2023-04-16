@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Policy;
@@ -37,7 +38,6 @@ namespace TestTracker
                     RefreshBasicInfo();
                 }
             }
-
             RefreshListOfTestSuites();
         }
 
@@ -50,7 +50,7 @@ namespace TestTracker
             {
                 foreach (TreeNode node_case in node_suite.Nodes)
                 {
-                    string passed = Connector.GetResultIfExists(this.run_id, Convert.ToInt32(node_case.Tag));
+                    string passed = Connector.GetResultIfExists(this.user_login, this.run_id, Convert.ToInt32(node_case.Tag));
                     switch (passed)
                     {
                         case "Passed":
@@ -60,9 +60,22 @@ namespace TestTracker
                             node_case.BackColor = Color.LightPink;
                             break;
                     }
+                    if (node_case.Tag != null)
+                    {
+                        TestCase tcase = Connector.GetTestCase(Convert.ToInt32(node_case.Tag));
+                        node_case.Text = tcase.Representation;
+                    }
+
                 }
             }
             this.treeViewOfTestSuites.EndUpdate();
+            // if admin/root
+            if (user_login == "admin" && run_id == "root")
+            {
+                btnBulkEdit.Enabled = true;
+            } else {
+                btnBulkEdit.Enabled = false;
+            }
         }
 
         private void RefreshListOfTestSuites()
@@ -79,7 +92,7 @@ namespace TestTracker
                 {
                     var node_case = node_suite.Nodes.Add(testcase.FullId.ToString(), testcase.Representation);
                     node_case.Tag = testcase.ShortId;
-                    string passed = Connector.GetResultIfExists(this.run_id, testcase.ShortId);
+                    string passed = Connector.GetResultIfExists(this.user_login, this.run_id, testcase.ShortId);
                     switch (passed)
                     {
                         case "Passed":
@@ -92,6 +105,7 @@ namespace TestTracker
                 }
             }
             this.treeViewOfTestSuites.EndUpdate();
+            TreeNode ddd = treeViewOfTestSuites.SelectedNode;
         }
 
         private void treeViewOfTestSuites_AfterSelect(object sender, TreeViewEventArgs e)
@@ -118,24 +132,72 @@ namespace TestTracker
         private void buttonRun_Click(object sender, EventArgs e)
         {
             int testcase_short_id = this.ShortIdOfSelectedTestCase;
-            TestCase tcase = Connector.GetTestCase(testcase_short_id);
-            TestSteps tsteps = Connector.GetStepsForTestCase(testcase_short_id);
-
-            using (var form = new TestCaseForm(tcase, tsteps))
+            try
             {
-                var result = form.ShowDialog();
-                if (result == DialogResult.OK)
+                TestCase tcase = Connector.GetTestCase(testcase_short_id);
+                TestSteps tsteps = Connector.GetStepsForTestCase(testcase_short_id);
+                using (var form = new TestCaseForm(tcase, tsteps))
                 {
-                    string passed = form.result;
-                    Connector.InsertRunResult(this.user_login, this.run_id, tcase.ShortId, "2023-13-13", "2023-13-13", passed);
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        string passed = form.result;
+                        Connector.InsertRunResult(this.user_login, this.run_id, tcase.ShortId, "2023-13-13", "2023-13-13", passed);
+                    }
+                    RefreshBasicInfo();
                 }
-                RefreshBasicInfo();
+            } catch (Exception ex)
+            {
+                return;
             }
+
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
+            using (var loginForm = new LoginForm())
+            {
+                var result = loginForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    this.user_login = loginForm.login;
+                    this.run_id = loginForm.runId;
+                    RefreshBasicInfo();
+                }
+            }
+            RefreshListOfTestSuites();
+        }
 
+        private void buttonReports_Click(object sender, EventArgs e)
+        {
+            using (var loginForm = new ReportForm(this.Connector, this.user_login, this.run_id))
+            {
+                var result = loginForm.ShowDialog();
+            }
+        }
+
+        private void btnBulkEdit_Click(object sender, EventArgs e)
+        {
+            int testcase_short_id = this.ShortIdOfSelectedTestCase;
+            try
+            {
+                TestCase tcase = Connector.GetTestCase(testcase_short_id);
+                TestSteps tsteps = Connector.GetStepsForTestCase(testcase_short_id);
+                using (var form = new EditStepsForm(tcase, tsteps))
+                {
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        TestSteps newSteps = form.newSteps;
+                        Connector.ReplaceTestSteps(tcase, newSteps);
+                    }
+                    RefreshBasicInfo();
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
     }
 }

@@ -11,10 +11,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TestTracker.Models;
 using System.Security.Policy;
+using System.Diagnostics;
 
 namespace TestTracker
 {
-    internal class Connector
+    public class Connector
     {
         private SQLiteConnection _connection;
         public Connector()
@@ -127,16 +128,52 @@ namespace TestTracker
 
         public void InsertRunResult(string user_login, string run_id, int testcase_short_id, string timestamp_started, string timestamp_finished, string passed)
         {
-            if (!ExistsSavedResult(run_id, testcase_short_id)) {
-                string statement = $"insert into progress (user_login, run_id, testcase_short_id, timestamp_started, timestamp_finished, passed) values ('{user_login}', '{run_id}', {testcase_short_id}, '{timestamp_started}', '{timestamp_finished}', '{passed}')";
-                var cmd = new SQLiteCommand(statement, _connection);
-                cmd.ExecuteNonQuery();
-            }
+            string statement = ExistsSavedResult(run_id, testcase_short_id) ? 
+                $"update progress set passed='{passed}' where user_login='{user_login}' and run_id='{run_id}' and testcase_short_id={testcase_short_id}" : 
+                $"insert into progress (user_login, run_id, testcase_short_id, timestamp_started, timestamp_finished, passed) values ('{user_login}', '{run_id}', {testcase_short_id}, '{timestamp_started}', '{timestamp_finished}', '{passed}')";
+            var cmd = new SQLiteCommand(statement, _connection);
+            cmd.ExecuteNonQuery();
         }
 
-        public string GetResultIfExists(string run_id, int testcase_short_id)
+        public Dictionary<TestCase, string> GetResultsOfTestCases(string user_login, string run_id)
         {
-            string statement = $"select passed from progress where run_id='{run_id}' and testcase_short_id={testcase_short_id}";
+            string statement = $"select testcase_short_id, passed from progress where user_login='{user_login}' and run_id='{run_id}'";
+            var cmd = new SQLiteCommand(statement, _connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            Dictionary<TestCase, string> result = new Dictionary<TestCase, string>();
+            while (reader.Read())
+            {
+                int testcase_short_id = reader.GetInt32(0);
+                string passed = reader.GetString(1);
+                TestCase tcase = GetTestCase(testcase_short_id);
+                result.Add(tcase, passed);
+            }
+            return result;
+        }
+
+        public Dictionary<TestCase, string> GetResultsOfTestCases(string user_login)
+        {
+            return null;
+        }
+
+        public Dictionary<string, int> GetPairOfLoginAndExpectedResult(string passed)
+        {
+            string statement = $"select user_login, count(*) from progress where passed='{passed}' group by user_login";
+            var cmd = new SQLiteCommand(statement, _connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            Dictionary<string, int> result = new Dictionary<string, int>();
+            while (reader.Read())
+            {
+                string user_login = reader.GetString(0);
+                int count_passed = reader.GetInt32(1);
+                result[user_login] = count_passed;
+            }
+            return result;
+        }
+
+        public string GetResultIfExists(string user_login, string run_id, int testcase_short_id)
+        {
+            string statement = $"select passed from progress where user_login='{user_login}' and run_id='{run_id}' and testcase_short_id={testcase_short_id}";
             var cmd = new SQLiteCommand(statement, _connection);
             SQLiteDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
@@ -145,6 +182,37 @@ namespace TestTracker
                 return reader.GetString(0);
             }
             return null;
+        }
+
+        public void ReplaceTestSteps(TestCase tcase, TestSteps newSteps)
+        {
+            // delete old steps
+            string statement = $"delete from testcase_has_steps where testcase_short_id={tcase.ShortId}";
+            var cmd = new SQLiteCommand(statement, _connection);
+            cmd.ExecuteNonQuery();
+            // set new steps
+            for (int i=1; i<=newSteps.Count; i++)
+            {
+                statement = $"insert into testcase_has_steps (testcase_short_id, step, action) values ({tcase.ShortId}, {i}, '{newSteps[i]}')";
+                cmd = new SQLiteCommand(statement, _connection);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public List<(string, int)> GetQtyOfCasesFinished()
+        {
+            string statement = $"select user_login, run_id, count(testcase_short_id) from progress group by user_login, run_id";
+            List<(string, int)> result = new List<(string, int)>();
+            var cmd = new SQLiteCommand(statement, _connection);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string user_login = reader.GetString(0);
+                int finished = reader.GetInt32(2);
+                (string, int) pair = (user_login, finished);
+                result.Add(pair);
+            }
+            return result;
         }
 
     }
