@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Авторизация под пользователем");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Авторизация под админом");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Авторизация", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Один");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Второй");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Третий");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Каталог", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Авторизация под пользователем");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Авторизация под админом");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Авторизация", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Один");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Второй");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Третий");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Каталог", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBulkEdit = new System.Windows.Forms.Button();
@@ -153,26 +153,26 @@
             this.treeViewOfTestSuites.Location = new System.Drawing.Point(8, 23);
             this.treeViewOfTestSuites.Margin = new System.Windows.Forms.Padding(4);
             this.treeViewOfTestSuites.Name = "treeViewOfTestSuites";
-            treeNode8.Name = "Node2";
-            treeNode8.Text = "Авторизация под пользователем";
-            treeNode9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            treeNode9.Name = "Node3";
-            treeNode9.Text = "Авторизация под админом";
-            treeNode10.Name = "Node0";
-            treeNode10.Text = "Авторизация";
-            treeNode11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            treeNode11.Name = "Node0";
-            treeNode11.Text = "Один";
-            treeNode12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            treeNode12.Name = "Node1";
-            treeNode12.Text = "Второй";
-            treeNode13.Name = "Node2";
-            treeNode13.Text = "Третий";
-            treeNode14.Name = "Node1";
-            treeNode14.Text = "Каталог";
+            treeNode1.Name = "Node2";
+            treeNode1.Text = "Авторизация под пользователем";
+            treeNode2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            treeNode2.Name = "Node3";
+            treeNode2.Text = "Авторизация под админом";
+            treeNode3.Name = "Node0";
+            treeNode3.Text = "Авторизация";
+            treeNode4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "Один";
+            treeNode5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            treeNode5.Name = "Node1";
+            treeNode5.Text = "Второй";
+            treeNode6.Name = "Node2";
+            treeNode6.Text = "Третий";
+            treeNode7.Name = "Node1";
+            treeNode7.Text = "Каталог";
             this.treeViewOfTestSuites.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode14});
+            treeNode3,
+            treeNode7});
             this.treeViewOfTestSuites.Size = new System.Drawing.Size(302, 329);
             this.treeViewOfTestSuites.TabIndex = 0;
             this.treeViewOfTestSuites.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewOfTestSuites_AfterSelect);
